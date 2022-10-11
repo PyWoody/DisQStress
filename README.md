@@ -22,7 +22,7 @@ The DisQStress application window will open alongside your main application.
 ### Snake
 The `Snake` action will operate like a traditional snake by progressing through the gride. A snake will be generated for every click.
 
-![](https://user-images.githubusercontent.com/12412157/195203916-5e21993c-c475-41cf-8d4a-0eb2c9d46ec4.mp4)
+[](https://user-images.githubusercontent.com/12412157/195203916-5e21993c-c475-41cf-8d4a-0eb2c9d46ec4.mp4)
 
 ### Wash
 The `Wash` action will progressivly "wash" down the screen. A "wash" will be generated for every click.

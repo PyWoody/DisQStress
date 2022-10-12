@@ -11,6 +11,8 @@ Simply import `DisQStress`, place it in your main `__init__` and `.show()` it.
 ```
 import DisQStress
 
+class Window(QWidget):
+
     def __init__(self):
         stress = DisQStress.StressTest()
         stress.show()

@@ -359,7 +359,7 @@ class StressTest(QWidget):
                     if item := self.grid.itemAtPosition(self.rows, column):
                         item.widget().setParent(None)
                 self.layout()
-        self.snake_cells = [i for i in self.snaked_panels()]
+                self.snake_cells = [i for i in self.snaked_panels()]
 
     @Slot()
     def remove_column(self):
@@ -370,7 +370,7 @@ class StressTest(QWidget):
                     if item := self.grid.itemAtPosition(row, self.columns):
                         item.widget().setParent(None)
                 self.layout()
-        self.snake_cells = [i for i in self.snaked_panels()]
+                self.snake_cells = [i for i in self.snaked_panels()]
 
     @Slot(str)
     @Slot(partial)

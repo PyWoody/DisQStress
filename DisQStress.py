@@ -1,4 +1,3 @@
-import itertools
 import random
 import threading
 import time
@@ -129,6 +128,7 @@ class StressTest(QWidget):
                 )
                 self.grid.addWidget(panel, row, column)
         self.grid_layout.addLayout(self.grid)
+        self.snake_cells = [i for i in self.snaked_panels()]
 
         layout = QVBoxLayout()
         layout.addLayout(self.grid_layout)
@@ -250,9 +250,7 @@ class StressTest(QWidget):
         while True:
             if self.__stop:
                 return
-            panels = [
-                p for p in itertools.islice(self.snaked_panels(), tail, head)
-            ]
+            panels = self.snake_cells[tail:head]
             if panels:
                 panels.reverse()
                 self.update_snake(panels, snake_length, iteration)
@@ -336,6 +334,7 @@ class StressTest(QWidget):
                 self.grid.addWidget(panel, self.rows, column)
             self.rows += 1
             self.layout()
+        self.snake_cells = [i for i in self.snaked_panels()]
 
     @Slot()
     def add_column(self):
@@ -349,6 +348,7 @@ class StressTest(QWidget):
                 self.grid.addWidget(panel, row, self.columns)
             self.columns += 1
             self.layout()
+        self.snake_cells = [i for i in self.snaked_panels()]
 
     @Slot()
     def remove_row(self):
@@ -359,6 +359,7 @@ class StressTest(QWidget):
                     if item := self.grid.itemAtPosition(self.rows, column):
                         item.widget().setParent(None)
                 self.layout()
+        self.snake_cells = [i for i in self.snaked_panels()]
 
     @Slot()
     def remove_column(self):
@@ -369,6 +370,7 @@ class StressTest(QWidget):
                     if item := self.grid.itemAtPosition(row, self.columns):
                         item.widget().setParent(None)
                 self.layout()
+        self.snake_cells = [i for i in self.snaked_panels()]
 
     @Slot(str)
     @Slot(partial)
